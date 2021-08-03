@@ -1,0 +1,24 @@
+<IfModule mod_headers.c>
+    RequestHeader unset Proxy
+</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+
+    RewriteCond %{REQUEST_URI} !^/webroot/
+    RewriteCond %{REQUEST_URI} !^(\.well-known/.*)$
+    RewriteRule ^(.*)$ /webroot/$1 [QSA,L]
+
+    RewriteRule    ^(\.well-known/.*)$ $1 [L]
+
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+</IfModule>
+
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin: "*"
+    Header set Access-Control-Allow-Methods: "POST"
+    Header set Access-Control-Allow-Headers: "Authorization, Access-Control-Allow-Origin, Content-Type"
+</IfModule>

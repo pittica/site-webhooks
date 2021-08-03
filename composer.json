@@ -1,0 +1,35 @@
+{
+  "name": "pittica/site-webhooks",
+  "homepage": "https://github.com/pittica/site-webhooks",
+  "description": "Handle webhooks.",
+  "type": "project",
+  "license": "MIT",
+  "keywords": [
+    "webhooks",
+    "post"
+  ],
+  "authors": [
+    {
+      "name": "Lucio Benini",
+      "email": "info@pittica.com",
+      "homepage": "https://pittica.com",
+      "role": "Web Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pittica\\SiteWebhooks\\": "src"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*",
+    "php": "^7.1",
+    "guzzlehttp/guzzle": "^6.5.2"
+  },
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
+}
