@@ -19,6 +19,8 @@
 
 namespace Pittica\SiteWebhooks;
 
+use GuzzleHttp\Psr7\ServerRequest;
+
 /**
  * Application main class.
  * 
@@ -46,9 +48,7 @@ class Application
      */
     public function __construct()
     {
-        $server = new Server;
-
-        if (!$server->isPost()) {
+        if (!$this->isPost()) {
             http_response_code(200);
 
             header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
@@ -70,11 +70,11 @@ class Application
      */
     public function run(): void
     {
-        if ($_GET['token'] === $this->_config['token']) {
+        if ($_REQUEST['token'] === $this->_config['token'] && !empty($_REQUEST['hook'])) {
             header('Content-type:application/json;charset=utf-8');
 
             try {
-                $hook = Hook::loadHook($_GET['hook']);
+                $hook = Hook::loadHook($_REQUEST['hook']);
 
                 if ($hook) {
                     $this->respond($hook->send());
@@ -87,6 +87,21 @@ class Application
         } else {
             $this->respond(403);
         }
+    }
+
+    /**
+     * Determines whether the request is POST.
+     * 
+     * @return bool A value indicating whether the request is POST.
+     * @author Lucio Benini <info@pittica.com>
+     * @since  1.0.0
+     */
+    protected function isPost(): bool
+    {
+        $request = ServerRequest::fromGlobals();
+        $params = $request->getServerParams();
+
+        return $params['REQUEST_METHOD'] === 'POST';
     }
 
     /**

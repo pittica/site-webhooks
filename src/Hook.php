@@ -19,7 +19,7 @@
 
 namespace Pittica\SiteWebhooks;
 
-use Psr\Http\Message\ResponseInterface;
+use \DateTime;
 
 /**
  * Hook abstract class.
