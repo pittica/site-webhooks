@@ -1,7 +1,7 @@
-# Post SendGrid
+# Site Webhooks
 
 [![LICENSE](https://img.shields.io/github/license/pittica/site-webhooks.svg)](LICENSE)
-[![packagist](https://img.shields.io/badge/packagist-pittica%2Fpost--sendgrid-brightgreen.svg)](https://packagist.org/packages/pittica/site-webhooks)
+[![packagist](https://img.shields.io/badge/packagist-pittica%2Fsite--webhooks-brightgreen.svg)](https://packagist.org/packages/pittica/site-webhooks)
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/pittica/site-webhooks)
 
 This project has been created to handle webhooks.
