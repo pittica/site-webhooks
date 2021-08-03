@@ -26,6 +26,7 @@ Create and edit a **config/app.php** file.
 <?php
 
 return [
+    'token' => '',
     'keys' => [
         'GitHub' => [
 			'username' => '',
