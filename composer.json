@@ -25,11 +25,12 @@
   "require": {
     "ext-curl": "*",
     "ext-json": "*",
-    "php": "^7.1",
+    "php": ">=7.1",
     "guzzlehttp/guzzle": "^6.5.2"
   },
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "php": "7.1.0
   }
 }
