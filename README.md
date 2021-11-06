@@ -38,4 +38,4 @@ return [
 
 ## Copyright
 
-© 2021 [Pittica S.r.l.s.](https://pittica.com)
+© 2021 [Pittica S.r.l.](https://pittica.com)
