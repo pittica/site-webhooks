@@ -46,7 +46,7 @@ class GitHubAction extends Hook
         if (!empty($_REQUEST['owner']) && !empty($_REQUEST['repo']) && !empty($_REQUEST['action'])) {
             try {
                 $response = $client->request('POST', '/repos/' . $_REQUEST['owner'] . '/' . $_REQUEST['repo'] . '/actions/workflows/' . $_REQUEST['action'] . '/dispatches', [
-                    'json' => ['ref' => !empty($_REQUEST['branch']) ? $_REQUEST['branch'] : 'master'],
+                    'json' => ['ref' => !empty($_REQUEST['branch']) ? $_REQUEST['branch'] : 'main'],
                     'verify' => false,
                     'auth' => [$this->getKey('username'), $this->getKey('token')]
                 ]);
